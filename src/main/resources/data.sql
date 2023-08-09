@@ -3,8 +3,8 @@
 -- Insert mock users
 INSERT INTO users (username, password, status)
 VALUES
-    ('user1@example.com', 'password1', 'active'),
-    ('user2@example.com', 'password2', 'active');
+    ('user1@example.com', '$2a$10$cWi415.nHanoKn4C9dQGeOvF.K5mgTmZJNXqNkdkw1kgeNddEbxiu', 'ACTIVE'),
+    ('user2@example.com', '$2a$10$cWi415.nHanoKn4C9dQGeOvF.K5mgTmZJNXqNkdkw1kgeNddEbxiu', 'ACTIVE');
 
 -- Insert mock operations
 INSERT INTO operations (type, cost)

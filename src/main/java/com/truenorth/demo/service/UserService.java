@@ -2,6 +2,8 @@ package com.truenorth.demo.service;
 
 import com.truenorth.demo.model.User;
 import com.truenorth.demo.repository.UserRepository;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -21,4 +23,5 @@ public class UserService {
     public void save(User user) {
         userRepository.save(user);
     }
+
 }

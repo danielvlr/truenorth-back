@@ -28,6 +28,11 @@ public class RecordService {
         return recordRepository.findFirstByUserAndDeletedOrderByDateDesc(user, false);
     }
 
+    public BigDecimal getLastOperationResponseByUser(User user) {
+        return recordRepository.findFirstByUserAndDeletedOrderByDateDesc(user, false).map(Record::getOperationResponse).orElse(BigDecimal.ZERO);
+    }
+
+
     public void createRecord(User user, Operation operation, BigDecimal amount, BigDecimal userBalance, BigDecimal response) {
         Record record = new Record();
         record.setUser(user);

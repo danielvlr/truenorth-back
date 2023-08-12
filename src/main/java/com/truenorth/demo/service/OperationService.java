@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 
 @Service
 public class OperationService {
@@ -24,18 +25,18 @@ public class OperationService {
 
     private static final int RANDOM_STRING_LENGTH = 10;
 
-    public BigDecimal performActualOperation(OperationType type) {
+    public BigDecimal performActualOperation(OperationType type, BigDecimal amount, BigDecimal lastOperationResponse) {
         switch (type) {
             case ADDITION:
-                return BigDecimal.ZERO;
+                return lastOperationResponse.add(amount);
             case SUBTRACTION:
-                return BigDecimal.ZERO;
+                return lastOperationResponse.subtract(amount);
             case MULTIPLICATION:
-                return BigDecimal.ZERO;
+                return lastOperationResponse.multiply(amount);
             case DIVISION:
-                return BigDecimal.ZERO;
+                return lastOperationResponse.divide(amount);
             case SQUARE_ROOT:
-                return BigDecimal.ZERO;
+                return lastOperationResponse.sqrt(MathContext.DECIMAL32);
             case RANDOM_STRING:
                 return BigDecimal.ZERO;
 
@@ -58,7 +59,9 @@ public class OperationService {
 
         BigDecimal newUserBalance = userBalance.subtract(operationCost);
 
-        BigDecimal operationResponse = performActualOperation(type);
+        BigDecimal lastOperationResponse = recordService.getLastOperationResponseByUser(user);
+
+        BigDecimal operationResponse = performActualOperation(type, amount, lastOperationResponse);
 
         recordService.createRecord(user, operation, operationCost, newUserBalance, operationResponse);
 

@@ -35,7 +35,7 @@ public class OperationControllerTest {
         // Mock the principal's username
         when(userDetails.getUsername()).thenReturn(username);
 
-        when(operationService.performOperation(type, username)).thenReturn("Insufficient balance");
+//        when(operationService.performOperation(type, username)).thenReturn("Insufficient balance");
 
         //ResponseEntity<String> response = operationController.performOperation(type, userDetails);
 

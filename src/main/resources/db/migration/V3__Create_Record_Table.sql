@@ -7,7 +7,7 @@ CREATE TABLE records (
     user_id BIGINT NOT NULL,
     amount DOUBLE NOT NULL,
     user_balance DOUBLE NOT NULL,
-    operation_response VARCHAR(255) NOT NULL,
+    operation_response DOUBLE NOT NULL,
     date TIMESTAMP NOT NULL,
     deleted BOOLEAN NOT NULL,
     FOREIGN KEY (operation_id) REFERENCES operations(id),

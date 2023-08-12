@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -23,13 +24,13 @@ public class Record {
     private User user;
 
     @Column(nullable = false)
-    private double amount;
+    private BigDecimal amount;
 
     @Column(nullable = false)
-    private double userBalance;
+    private BigDecimal userBalance;
 
     @Column(nullable = false)
-    private String operationResponse;
+    private BigDecimal operationResponse;
 
     @Column(nullable = false)
     private LocalDateTime date;

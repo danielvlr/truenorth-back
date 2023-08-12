@@ -8,6 +8,8 @@ import com.truenorth.demo.repository.OperationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+
 @Service
 public class OperationService {
 
@@ -22,48 +24,49 @@ public class OperationService {
 
     private static final int RANDOM_STRING_LENGTH = 10;
 
-    public String performActualOperation(OperationType type) {
+    public BigDecimal performActualOperation(OperationType type) {
         switch (type) {
             case ADDITION:
-                return "Result of addition";
+                return BigDecimal.ZERO;
             case SUBTRACTION:
-                return "Result of subtraction";
+                return BigDecimal.ZERO;
             case MULTIPLICATION:
-                return "Result of multiplication";
+                return BigDecimal.ZERO;
             case DIVISION:
-                return "Result of division";
+                return BigDecimal.ZERO;
             case SQUARE_ROOT:
-                return "Result of square root";
+                return BigDecimal.ZERO;
             case RANDOM_STRING:
-                return generateRandomString();
+                return BigDecimal.ZERO;
+
+            //return generateRandomString();
             default:
                 throw new IllegalArgumentException("Invalid operation type");
         }
     }
 
-    public String performOperation(OperationType type, String username) {
+    public BigDecimal performOperation(OperationType type, BigDecimal amount, String username) {
         User user = userService.findByUsername(username);
         Operation operation = findByType(type);
 
-        double operationCost = operation.getCost();
-        double userBalance = getUserBalance(user);
+        BigDecimal operationCost = operation.getCost();
+        BigDecimal userBalance = getUserBalance(user);
 
-        if (userBalance < operationCost) {
-            return "Insufficient balance";
+        if (userBalance.compareTo(operationCost)<0) {
+            new RuntimeException("Insufficient balance");
         }
 
-        double newUserBalance = userBalance - operationCost;
+        BigDecimal newUserBalance = userBalance.subtract(operationCost);
 
-        String operationResponse = performActualOperation(type);
+        BigDecimal operationResponse = performActualOperation(type);
 
         recordService.createRecord(user, operation, operationCost, newUserBalance, operationResponse);
 
         return operationResponse;
     }
 
-    private double getUserBalance(User user) {
-        Record record = recordService.getLastRecordsByUser(user);
-        return record.getUserBalance();
+    private BigDecimal getUserBalance(User user) {
+        return recordService.getLastRecordsByUser(user).map(Record::getUserBalance).orElse(BigDecimal.valueOf(1000));
     }
 
     public Operation findByType(OperationType type) {

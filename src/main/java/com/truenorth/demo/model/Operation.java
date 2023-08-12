@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "operations")
@@ -19,6 +20,6 @@ public class Operation {
     private OperationType type;
 
     @Column(nullable = false)
-    private double cost;
+    private BigDecimal cost;
 }
 

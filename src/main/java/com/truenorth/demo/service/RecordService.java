@@ -6,8 +6,10 @@ import com.truenorth.demo.model.User;
 import com.truenorth.demo.repository.RecordRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RecordService {
@@ -22,11 +24,11 @@ public class RecordService {
         return recordRepository.findByUserOrderByDateDesc(user);
     }
 
-    public Record getLastRecordsByUser(User user) {
-        return recordRepository.findFirstByUserOrderByDateDesc(user);
+    public Optional<Record> getLastRecordsByUser(User user) {
+        return recordRepository.findFirstByUserAndDeletedOrderByDateDesc(user, false);
     }
 
-    public void createRecord(User user, Operation operation, double amount, double userBalance, String response) {
+    public void createRecord(User user, Operation operation, BigDecimal amount, BigDecimal userBalance, BigDecimal response) {
         Record record = new Record();
         record.setUser(user);
         record.setOperation(operation);

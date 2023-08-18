@@ -9,9 +9,30 @@ VALUES
 -- Insert mock operations
 INSERT INTO operations (type, cost)
 VALUES
-    ('addition', 1.0),
-    ('subtraction', 1.0),
-    ('multiplication', 2.0),
-    ('division', 2.0),
-    ('square_root', 3.0),
-    ('random_string', 0.5);
+    ('ADDITION', 1.0),
+    ('SUBTRACTION', 1.0),
+    ('MULTIPLICATION', 2.0),
+    ('DIVISION', 2.0),
+    ('SQUARE_ROOT', 3.0),
+    ('RANDOM_STRING', 0.5);
+
+
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);
+INSERT INTO records(operation_id, user_id, amount, user_balance, operation_response, `date`, deleted) VALUES(1, 1, 1, 1, 1, now(), 1);

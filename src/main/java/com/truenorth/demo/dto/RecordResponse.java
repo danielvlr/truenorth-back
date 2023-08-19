@@ -1,7 +1,6 @@
 package com.truenorth.demo.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.truenorth.demo.model.Operation;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,7 +13,8 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 public class RecordResponse implements Serializable {
-    private Operation operation;
+    private Long id;
+    private String operation;
     private BigDecimal amount;
     private BigDecimal userBalance;
     private BigDecimal operationResponse;
